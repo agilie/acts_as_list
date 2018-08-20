@@ -375,7 +375,7 @@ module ActiveRecord
                 item.decrement!(position_column)
               end
             else
-              items.decrement_all
+              items.order(position: :asc).decrement_all
             end
           else
             # Increment position of intermediate items
@@ -393,7 +393,7 @@ module ActiveRecord
                 item.increment!(position_column)
               end
             else
-              items.increment_all
+              items.order(position: :desc).increment_all
             end
           end
         end
